@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Auth;
 class VeiculoController extends Controller
 {
 
+    /**
+     * criação de um novo veiculo e dica
+     * @param VeiculosRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(VeiculosRequest $request)
     {
         $id_user = Auth::user()->id;
@@ -29,6 +34,11 @@ class VeiculoController extends Controller
 
     }
 
+    /**
+     * pagina para editar dados do veiculo ou dica
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id)
     {
         $tipos = TipoVeiculo::all();
@@ -40,7 +50,11 @@ class VeiculoController extends Controller
         return view('pages.AtualizarDica', compact('veiculos', 'tipos'));
 
     }
-
+    /**
+     * função para atualizar dados
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function update(Request $request)
     {
         Veiculo::query()->findOrFail($request->id)->update($request->all());
@@ -49,9 +63,12 @@ class VeiculoController extends Controller
 
 
     }
-
-    public
-    function delete($id)
+    /**
+     * função para deletar registro
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function delete($id)
     {
         try {
             Veiculo::query()->findOrFail($id)->delete();

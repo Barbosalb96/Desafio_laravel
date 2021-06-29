@@ -19,7 +19,10 @@ class HomeController extends Controller
     {
         return redirect()->route('home');
     }
-
+    /**
+     * Pagina que exibi todas as dicas
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function welcome()
     {
         $tipo_veiculos = TipoVeiculo::all();
@@ -30,7 +33,10 @@ class HomeController extends Controller
         return view('welcome', compact('dicas', 'tipo_veiculos'));
 
     }
-
+    /**
+     * Ppagina principal para cadastrar veiculos e dicas
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function Admin()
     {
         $veiculos = Veiculo::all();
@@ -38,6 +44,10 @@ class HomeController extends Controller
         return view('home', compact('tipo_veiculos', 'veiculos'));
     }
 
+    /**
+     * perfil do usuario onde ele pode ver suas dicas
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function adminDicas()
     {
         $dicas = Veiculo::query()->join('tipo_veiculos', 'tipo_veiculos.id', 'veiculos.id_tipo_veiculo')
@@ -46,6 +56,10 @@ class HomeController extends Controller
         return view('pages.My_dicas', compact('dicas'));
     }
 
+    /**
+     * filtro por modelo,tipo,marca podendo ser utilizado tanto no admin como para buscas gerais
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function FiltroDica($id = null,Request $request)
     {
         $filter = $request->search;
@@ -69,7 +83,7 @@ class HomeController extends Controller
     }
 
 
-    /** função que faz filtro
+    /** função que buscar os dados
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function filtro()
