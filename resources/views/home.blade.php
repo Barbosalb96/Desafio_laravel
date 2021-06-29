@@ -4,7 +4,7 @@
     <div class="container">
         <div class="jumbotron">
             <h4 class="">Bem Vindo : {{ucwords(Auth::user()->name) }}</h4>
-            <p class="lead">Aqui você pode publica dicas de veiculos</p>
+            <p class="lead">Aqui você pode publicar dicas de veiculos</p>
         </div>
 
         @if($errors->any())
@@ -59,12 +59,12 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <label for="">Ano Fabricação</label>
+                                <label for="">Ano de Fabricação</label>
                                 <input type="date" required class="form-control" value="{{old('ano')}}" name="ano" id=""
                                        placeholder="EX:MERCEDES-BENZ C 180">
                             </div>
                             <div class="col-md-6">
-                                <label for="">Varsão</label>
+                                <label for="">Versão</label>
                                 <input type="text" class="form-control" value="{{old('versao')}}" name="versao" id=""
                                        placeholder="EX: C 180">
                             </div>

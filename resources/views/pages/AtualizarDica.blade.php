@@ -61,7 +61,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <label for="">Ano Fabricação</label>
+                                <label for="">Ano de Fabricação</label>
                                 <input type="date" required class="form-control" value="{{$veiculos->ano}}" name="ano"
                                        placeholder="EX:MERCEDES-BENZ C 180">
                             </div>
